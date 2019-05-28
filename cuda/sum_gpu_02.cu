@@ -100,7 +100,7 @@ int main(void) {
 		MultiplyOnCPU_Single(h_data_A, h_data_B, h_data_R);
 	}
 	time_end_cpu_single = time(NULL);
-	printf("done!! (Time: %d s)\n", time_end_cpu_single - time_start_cpu_single);
+	printf("done!! (Time: %ld s)\n", time_end_cpu_single - time_start_cpu_single);
 
 	/* ホスト(CPU with OpenMP)で積演算を実行（速度計測のため REPEAT 回繰り返し） */
 	printf("Start calculation on CPU with OpenMP for %d times...", REPEAT);
@@ -109,7 +109,7 @@ int main(void) {
 		MultiplyOnCPU_OpenMP(h_data_A, h_data_B, h_data_R);
 	}
 	time_end_cpu_openmp = time(NULL);
-	printf("done!! (Time: %d s)\n", time_end_cpu_openmp - time_start_cpu_openmp);
+	printf("done!! (Time: %ld s)\n", time_end_cpu_openmp - time_start_cpu_openmp);
 
 	/* デバイス(GPU)で積演算を実行（速度計測のため REPEAT 回繰り返し） */
 	printf("Start calculation on GPU for %d times...", REPEAT);
@@ -118,7 +118,7 @@ int main(void) {
 		MultiplyOnGPU << <GRID_SIZE, BLOCK_SIZE >> > (d_data_A, d_data_B, d_data_R);
 	}
 	time_end_gpu = time(NULL);
-	printf("done!! (Time: %d s)\n", time_end_gpu - time_start_gpu);
+	printf("done!! (Time: %ld s)\n", time_end_gpu - time_start_gpu);
 
 	/* デバイスからメモリ内容をコピー(CPU←GPU) */
 	cudaMemcpy(h_data_R_fromGPU, d_data_R, DATA_SIZE * sizeof(float), cudaMemcpyDeviceToHost);
