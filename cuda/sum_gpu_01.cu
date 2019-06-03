@@ -44,9 +44,9 @@ int main(void) {
 	float* h_data_R;   /* Host(CPU)側メモリ */
 	float* h_data_R_fromGPU;   /* Host(CPU)側メモリ（結果のチェック専用） */
 
-	float* d_data_A;   /* Devive(GPU)側メモリ */
-	float* d_data_B;   /* Devive(GPU)側メモリ */
-	float* d_data_R;   /* Devive(GPU)側メモリ */
+	float* d_data_A;   /* Device(GPU)側メモリ */
+	float* d_data_B;   /* Device(GPU)側メモリ */
+	float* d_data_R;   /* Device(GPU)側メモリ */
 
 	/* ホスト(CPU)側メモリ領域の確保（可読性重視のためエラーチェック無しなので注意） */
 	h_data_A = (float*)malloc(DATA_SIZE * sizeof(float));

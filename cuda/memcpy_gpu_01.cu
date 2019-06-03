@@ -21,7 +21,7 @@ __global__ void DoubleOnGPU(float* d_data) {
 int main(void) {
 
 	float* h_data;    /* Host(CPU)側メモリ */
-	float* d_data;    /* Devive(GPU)側メモリ */
+	float* d_data;    /* Device(GPU)側メモリ */
 
 	/* ホスト(CPU)側メモリ領域の確保（可読性重視のためエラーチェック無しなので注意） */
 	h_data = (float*)malloc(DATA_SIZE * sizeof(float));
